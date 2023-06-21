@@ -34,9 +34,9 @@ server.use("/users", usersRoutes);
 server.use("/", (req, res) => {
     res.status(200).send("It Works!")
 })
-server.use((err, req, res) => {
-    return res.status(err.status || 500).json(err.message || "Error");
-})
+// server.use((err, req, res) => {
+//     return res.status(err.status || 500).json(err.message || "Error");
+// })
 server.use("*", (req, res) => {
     return res.status(404).json({msg: 'Not Found'});
 })
