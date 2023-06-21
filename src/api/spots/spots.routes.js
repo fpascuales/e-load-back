@@ -4,7 +4,8 @@ const {verifyCreateSpotFields, verifyUpdateSpotFields, verifyUpdateSpotState} =r
 const spotsRoutes = require("express").Router();
 
 spotsRoutes.post("/", [verifyCreateSpotFields, isAdmin], createSpot);
-spotsRoutes.patch("/:id", [verifyUpdateSpotState, isAuth], updateSpot);
+spotsRoutes.patch("/:id", [isAuth], updateSpot);
+// spotsRoutes.patch("/:id", [verifyUpdateSpotState, isAuth], updateSpot);
 spotsRoutes.put("/:id", [verifyUpdateSpotFields, isAdmin], updateSpot);
 spotsRoutes.delete("/:id", [isAdmin], deleteSpot);
 spotsRoutes.get("/", getAllSpots);
