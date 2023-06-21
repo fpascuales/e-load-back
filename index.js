@@ -37,7 +37,7 @@ server.use("/", (req, res) => {
 server.use((err, req, res) => {
     return res.status(err.status || 500).json(err.message || "Error");
 })
-server.use("*", (req, res) => {
+server.use("/*", (req, res) => {
     return res.status(404).json({msg: 'Not Found'});
 })
 server.listen(PORT, () => {
